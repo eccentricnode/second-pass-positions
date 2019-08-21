@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-content>
+        <h3 mat-subheader>Positions</h3>
+        <mat-list *ngIf="positions.length; else elseBlock">
+            <mat-list-item *ngFor="let position of positions" class="mat-list-option"
+                (click)="select(position)">
+                <h4 mat-line>{{position.name}}</h4>
+            </mat-list-item>
+        </mat-list>
+        <ng-template #elseBlock>
+            <div class="spinner">
+                <mat-spinner mode="indeterminate"></mat-spinner>
+            </div>
+        </ng-template>
+    </mat-card-content>
+</mat-card>

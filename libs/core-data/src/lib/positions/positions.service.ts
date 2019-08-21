@@ -8,16 +8,21 @@ const BASE_URL = `https://level-up-api-varwfvewcd.now.sh`;
   providedIn: 'root'
 })
 export class PositionsService {
-  model = `teams`;
+  model = `positions`;
 
   constructor(private http: HttpClient) { }
   
   getUrl() {
-    return `${BASE_URL}${this.model}`;
+    return `${BASE_URL}/${this.model}`;
   }
 
   all() {
     return this.http.get<any>(this.getUrl())
-      .pipe(map(res => res));
+      .pipe(map((res: any) => res.map((position: Position, i) => this.CreateNewIds(position, i))));
+  }
+
+  private CreateNewIds(data: Position, i) {
+    i++;
+    return { id: i, ...data };
   }
 }

@@ -15,8 +15,8 @@ export class PositionsFacade {
 
   constructor(private store: Store<PositionsState>) {}
 
-  selectPosition(postionName: string) {
-    this.store.dispatch(new PositionsActions.PositionSelected(postionName));
+  selectPosition(postionId: string) {
+    this.store.dispatch(new PositionsActions.PositionSelected(postionId));
   }
 
   loadPositions() {

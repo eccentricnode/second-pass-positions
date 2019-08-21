@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <div class="list-grid">
+        <second-pass-positions-list
+            [positions]="positions$ | async"
+            (selected)="selectPosition($event)">
+        </second-pass-positions-list>
+    </div>
+
+    <div class="details-grid">
+        <second-pass-position-details
+            [group]="form"
+            [position]="selectedPosition$ | async"
+            (resetForm)="reset($event)">
+        </second-pass-position-details>
+    </div>
+</div>

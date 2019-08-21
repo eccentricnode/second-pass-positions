@@ -24,7 +24,6 @@ export class PositionsEffects {
     });
 
   constructor(
-    private actions$: Actions,
     private dataPersistence: DataPersistence<PositionsState>,
     private positionsService: PositionsService
   ) {}
